@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static%}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"  href="{% static 'css/materialize.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/materialize.min.css' %}">
+        <style>
+            nav {
+                background-color: #007bff; /* Change the background color to your desired color */
+            }
+        
+            nav ul.right li a {
+                font-size: 20px !important;
+            }
+            
+            nav ul.right li a:hover {
+                text-decoration: none;
+                opacity: 0;
+                background: none !important;
+            }
+        </style>
+    </head>
+    <body>
+        <nav> 
+            <div class="nav-wrapper">
+              <a href="{% url 'testapp:home' %}" class="brand-logo">&nbsp;&nbsp;Home</a>
+              <a href="{% url 'testapp:home' %}" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'testapp:features' %}">Features</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'testapp:logout' %}">logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'testapp:login' %}">sign in</a></li>
+                    <li><a href="{% url 'testapp:signup' %}">signup</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </nav>
+        
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="{% url 'testapp:features' %}">Features</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'testapp:logout' %}">logout</a></li>
+            {% else %}
+                <li><a href="{% url 'testapp:login' %}">sign in</a></li>
+                <li><a href="{% url 'testapp:signup' %}">signup</a></li>
+            {% endif %}
+          </ul>
+        </nav>   
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.sidenav');
+                var instances = M.Sidenav.init(elems);
+              });
+        </script>  
+    </body>
+</html>

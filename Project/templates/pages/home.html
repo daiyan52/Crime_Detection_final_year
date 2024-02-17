@@ -1,0 +1,122 @@
+{% extends 'pages/base.html'%}
+{% load static %}
+
+
+{% block content%}
+{% include 'pages/navbar.html'%}
+<div class="parallax-container">
+  <div class="parallax"><img class="responsive-img" src="{% static 'images/cctv.jpg' %}"></div>
+</div>
+<div class="section white">
+  <div class="row container">
+    <h4 class="header">Crime Detection</h4>
+    <p class="grey-text text-darken-3 lighten-3">Project Details</p>
+    <a href="{% url 'testapp:upload_video' %}">upload video</a>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 50px;">
+  <h2>Our Team Mentor</h2>
+  <div class="col s12 m3 offset-m1">
+    <div class="card">
+      <div class="card-image">
+        <img src="{% static 'images/3.jpg' %}" style="height:250px;" alt="Daiyan's images">
+      </div>
+      <div class="card-content">
+        <h5 class="center-align">Daiyan Alam</h5>
+        <p>I am a very simple card.  quire little markup to use effectively.</p>
+      </div>
+      <div class="card-action">
+        <a href="#">This is a link</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m7">
+    <div class="card white lighten-1">
+      <div class="card-content white-black">
+        <span class="card-title">About Me</span>
+        <hr class="bg-danger">
+      <p>My area of expertise in my bachelor's programme is 
+        information technology. I'm skilled in Django, ReactJs, and NodeJs to create creative solutions. I'm excited to keep learning more in this exciting and ever-changing area.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section white">
+  <h4 class="header center-align">Team Member</h2>
+<div class="team-member">
+    <div>
+      <img class="responsive-img" src="{% static 'images/4.jpg' %}">
+      <div>
+        <h5>Daiyan Alam</h5>
+      </div>
+    </div>
+  
+    <div>
+      <img class="responsive-img" src="{% static 'images/4.jpg' %}">
+      <div>
+        <h5>Raju Kuamr</h5>
+      </div>
+    </div>
+  
+    <div>
+      <img class="responsive-img" src="{% static 'images/4.jpg' %}">
+      <div>
+        <h5>Anish Kumar</h5>
+      </div>
+    </div>
+  
+    <div>
+      <img class="responsive-img" src="{% static 'images/4.jpg' %}">
+      <div>
+        <h5>Md Saifuddin</h5>
+      </div>
+    </div>
+</div>
+</div>
+<footer class="page-footer section red darken-4">
+  <div class="footer-copyright">
+    <div id="copyright" class="container">&copy;&nbsp;<span id="currentYear"></span> Copyright Text</div>
+  </div>
+</footer>
+<style>
+  body{
+    background : black;
+  }
+  h2{
+    text-align : center;
+    color : white;
+    font-size : 40px;
+    font-style : italic;
+    text-decoration : underline;
+    test-decoration-skip-ink : auto;
+    text-underline-offset: 0.2em;
+  }
+  .responsive-img{
+    border-radius: 20px;
+    width:250px;
+    height:400px;
+  }
+
+  .team-member{
+    display:flex;
+    flex-wrap : wrap;
+    justify-content : space-evenly;
+    align-items : center;
+  }
+</style>
+ 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.parallax');
+    var instances = M.Parallax.init(elems);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var currentYear = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = currentYear;
+});
+</script>
+{% endblock%}
